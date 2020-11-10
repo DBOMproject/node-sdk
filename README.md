@@ -17,6 +17,8 @@ The DBoM SDK for Node.js provides a high level API to interact with a DBoM node.
   - [Attach or Detach SubAsset](#attach-or-detach-subasset)
   - [Validate or Audit the Asset](#validate-or-audit-the-asset)
 - [Docs](#docs)
+- [Getting Help](#getting-help)
+- [Getting Involved](#getting-involved)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -147,9 +149,4 @@ If you have questions, concerns, bug reports, etc, please file an issue in this 
 
 ## Getting involved
 
-This section should detail why people should get involved and describe key areas you are
-currently focusing on; e.g., trying to get feedback on features, fixing certain bugs, building
-important pieces, etc.
-
-General instructions on _how_ to contribute should be stated with a link to [CONTRIBUTING](CONTRIBUTING.md).
-
+Find the instructions on how you can contribute in [CONTRIBUTING](CONTRIBUTING.md).
