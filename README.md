@@ -141,11 +141,9 @@ npm run generate-docs
 
 ## Getting help
 
-If you have any queries on insert-project-name, feel free to reach us on any of our [communication channels](https://github.com/DBOMproject/community/blob/master/COMMUNICATION.md) 
+If you have any queries on the dbom-node-sdk, feel free to reach us on any of our [communication channels](https://github.com/DBOMproject/community/blob/master/COMMUNICATION.md) 
 
-**Example**
-
-If you have questions, concerns, bug reports, etc, please file an issue in this repository's Issue Tracker.
+If you have questions, concerns, bug reports, etc, please file an issue in this repository's [Issue Tracker](https://github.com/DBOMproject/node-sdk/issues).
 
 ## Getting involved
 
