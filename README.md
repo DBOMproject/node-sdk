@@ -55,17 +55,13 @@ npm install @dbom/sdk
 The DBoM SDK can now be imported:
 
 ```javascript
-const DbomNode = require('dbom-node-sdk');
+const DbomNode = require('@dbom/sdk');
 let dNode = new DbomNode('<gateway-uri>', '<signing-service-uri>');
 ```
 
 ### Create and Update Asset
 
 ```javascript
-const DbomNode = require('dbom-node-sdk');
-
-let dNode = new DbomNode('<gateway-uri>', '<signing-service-uri>');
-
 let repoID = 'DB1',
     channelID = 'C1',
     assetID = 'ABC01',

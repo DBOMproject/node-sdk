@@ -1,15 +1,15 @@
 {
-  "name": "dbom-node-sdk",
+  "name": "@dbom/sdk",
   "version": "1.0.0",
   "description": "Node SDK for DBoM",
   "main": "src/dbom-node.js",
   "scripts": {
-    "generate-docs": "node_modules/.bin/jsdoc --configure docs/.jsdoc.json --verbose",
+    "generate-docs": "jsdoc --configure docs/.jsdoc.json --verbose",
     "test": "cross-env NODE_ENV=development nyc mocha src/test/* --exit && npx nyc report --reporter=html"
   },
   "keywords": [],
   "author": "Unisys - Emerging Technologies Blockchain&IoT",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "ajv": "^6.12.3",
     "axios": "^0.19.2"
@@ -24,5 +24,16 @@
     "moxios": "^0.4.0",
     "nyc": "^15.1.0",
     "sinon": "^9.1.0"
-  }
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DBOMproject/node-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DBOMproject/node-sdk/issues"
+  },
+  "homepage": "https://github.com/DBOMproject/node-sdk#readme"
 }
