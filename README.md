@@ -3,7 +3,7 @@
 The DBoM SDK for Node.js provides a high level API to interact with a DBoM node. The SDK is designed to be used in the Node.js JavaScript runtime.
 
 <!-- TABLE OF CONTENT -->
-## Table of Content
+## Table of Contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
