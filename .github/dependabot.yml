@@ -1,0 +1,8 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" 
+    directory: "/"
+    reviewers: 
+      - "DBOMproject/Unisys-Technical"
+    schedule:
+      interval: "daily"
