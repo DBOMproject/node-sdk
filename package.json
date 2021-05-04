@@ -5,7 +5,8 @@
   "main": "src/dbom-node.js",
   "scripts": {
     "generate-docs": "jsdoc --configure docs/.jsdoc.json --verbose",
-    "test": "cross-env NODE_ENV=development nyc mocha src/test/* --exit && npx nyc report --reporter=html"
+    "test": "cross-env NODE_ENV=development nyc mocha src/test/* --exit && npx nyc report --reporter=html",
+    "test-coveralls": "cross-env NODE_ENV=development nyc mocha src/test/* -timeout=1200000 --exit && npx nyc report --reporter=lcovonly"
   },
   "keywords": [],
   "author": "Unisys - Emerging Technologies Blockchain&IoT",
