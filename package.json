@@ -4,6 +4,7 @@
   "description": "Node SDK for DBoM",
   "main": "src/dbom-node.js",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "generate-docs": "jsdoc --configure docs/.jsdoc.json --verbose",
     "test": "cross-env NODE_ENV=development nyc mocha src/test/* --exit && npx nyc report --reporter=html"
   },
@@ -12,10 +13,10 @@
   "license": "Apache-2.0",
   "dependencies": {
     "ajv": "^6.12.3",
-    "axios": "^0.19.2"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
+    "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "cross-env": "^7.0.2",
     "eslint": "^7.13.0",
@@ -38,5 +39,10 @@
   "bugs": {
     "url": "https://github.com/DBOMproject/node-sdk/issues"
   },
-  "homepage": "https://github.com/DBOMproject/node-sdk#readme"
+  "homepage": "https://github.com/DBOMproject/node-sdk#readme",
+  "resolutions": {
+    "taffydb": "2.7.3",
+    "lodash": "4.17.21",
+    "underscore": "1.13.1"
+  }
 }
