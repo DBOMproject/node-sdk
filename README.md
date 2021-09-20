@@ -44,7 +44,7 @@ In the project root folder:
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-To use the node SDK within the dbom repository, go into your directory and `npm link` the SDK's directory
+The DBoM SDK is available on NPM and can be used as described below
 
 **Example:**
 
