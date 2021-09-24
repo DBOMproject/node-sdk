@@ -9,16 +9,18 @@ The DBoM SDK for Node.js provides a high level API to interact with a DBoM node.
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Development](#development)
-- [Usage](#usage)
-  - [Create and Update Asset](#create-and-update-asset)
-  - [Attach or Detach SubAsset](#attach-or-detach-subasset)
-  - [Validate or Audit the Asset](#validate-or-audit-the-asset)
-- [Docs](#docs)
-- [Getting Help](#getting-help)
-- [Getting Involved](#getting-involved)
+- [DBoM Node SDK](#dbom-node-sdk)
+  - [Table of Contents](#table-of-contents)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Development](#development)
+  - [Usage](#usage)
+    - [Create and Update Asset](#create-and-update-asset)
+    - [Attach or Detach SubAsset](#attach-or-detach-subasset)
+    - [Validate or Audit the Asset](#validate-or-audit-the-asset)
+  - [Docs](#docs)
+  - [Getting help](#getting-help)
+  - [Getting involved](#getting-involved)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -58,7 +60,7 @@ The DBoM SDK can now be imported:
 
 ```javascript
 const DbomNode = require('@dbom/sdk');
-let dNode = new DbomNode('<gateway-uri>', '<signing-service-uri>');
+let dNode = new DbomNode('<gateway-uri>', '<optional-signing-service-uri>', '<optional-api-key>');
 ```
 
 ### Create and Update Asset
