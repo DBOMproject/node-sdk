@@ -1,6 +1,6 @@
 {
   "name": "@dbom/sdk",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Node SDK for DBoM",
   "main": "src/dbom-node.js",
   "scripts": {
@@ -10,11 +10,11 @@
     "test-coveralls": "cross-env NODE_ENV=development nyc mocha src/test/* -timeout=1200000 --exit && npx nyc report --reporter=lcovonly"
   },
   "keywords": [],
-  "author": "Unisys - Emerging Technologies Blockchain&IoT",
+  "author": "DBoM Project",
   "license": "Apache-2.0",
   "dependencies": {
     "ajv": "^8.6.2",
-    "axios": "^0.21.1"
+    "axios": "^0.21.4"
   },
   "devDependencies": {
     "chai": "^4.3.4",
