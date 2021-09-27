@@ -36,7 +36,7 @@ class AssetOrChannelNotFound extends DbomError {
   constructor() {
     super();
     this.name = this.constructor.name;
-    this.message = 'Asset or cannel was not found';
+    this.message = 'Asset or channel was not found';
     this.status = 404;
   }
 }
