@@ -116,3 +116,6 @@ dist
 
 # generated documentation
 docs/gen
+
+# Consumer Examples WIP
+sdk-consumer-examples/
