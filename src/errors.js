@@ -50,6 +50,15 @@ class ParentAssetOrChannelNotFound extends AssetOrChannelNotFound {
   }
 }
 
+class SourceAssetOrChannelNotFound extends AssetOrChannelNotFound {
+  constructor() {
+    super();
+    this.name = this.constructor.name;
+    this.message = 'Source asset or channel was not found';
+    this.status = 404;
+  }
+}
+
 class ChildAssetOrChannelNotFound extends AssetOrChannelNotFound {
   constructor() {
     super();
@@ -64,6 +73,15 @@ class AssetAlreadyExists extends DbomError {
     super();
     this.name = this.constructor.name;
     this.message = 'Asset already exists';
+    this.status = 409;
+  }
+}
+
+class DestinationAssetAlreadyExists extends AssetAlreadyExists {
+  constructor() {
+    super();
+    this.name = this.constructor.name;
+    this.message = 'Destination asset-id already exists';
     this.status = 409;
   }
 }
@@ -105,6 +123,7 @@ class SigningServiceError extends DbomError {
   }
 }
 
+
 module.exports = {
   DbomError,
   AssetInvalid,
@@ -116,4 +135,6 @@ module.exports = {
   AssetNotAttached,
   AssetAlreadyAttached,
   GatewayError,
+  SourceAssetOrChannelNotFound,
+  DestinationAssetAlreadyExists,
 };

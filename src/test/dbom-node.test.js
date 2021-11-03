@@ -35,8 +35,10 @@ const {
   AssetAlreadyExists,
   AssetAlreadyAttached,
   ParentAssetOrChannelNotFound,
+  SourceAssetOrChannelNotFound,
   ChildAssetOrChannelNotFound,
   SigningServiceError,
+  DestinationAssetAlreadyExists,
 } = require('../errors');
 
 describe('dbom node', () => {
@@ -653,6 +655,48 @@ describe('dbom node', () => {
         .to
         .be
         .rejectedWith(GatewayError);
+    });
+  });
+
+  context('transferAsset', () => {
+    it('should transfer asset', (done) => {
+      axiosMock(200, 'stubResponse', done);
+      dbom.transferAsset('sourceRepoID', 'sourceChannelID', 'sourceAssetID',
+        'destinationRepoID', 'destinationChannelID', 'destinationAssetID').then((resolve) => {
+        expect(resolve).to.equal('stubResponse');
+      });
+      dbom1.transferAsset('sourceRepoID', 'sourceChannelID', 'sourceAssetID',
+        'destinationRepoID', 'destinationChannelID', 'destinationAssetID').then((resolve) => {
+        expect(resolve).to.equal('stubResponse');
+      });
+    });
+
+    it('should return source asset not found error', (done) => {
+      axiosMock(404, 'stubResponse', done);
+      expect(dbom.transferAsset('sourceRepoID', 'sourceChannelID', 'sourceAssetID',
+        'destinationRepoID', 'destinationChannelID', 'destinationAssetID')).to.be.rejectedWith(SourceAssetOrChannelNotFound);
+      expect(dbom1.transferAsset('sourceRepoID', 'sourceChannelID', 'sourceAssetID',
+        'destinationRepoID', 'destinationChannelID', 'destinationAssetID')).to.be.rejectedWith(SourceAssetOrChannelNotFound);
+    });
+
+    it('should report if destination asset already exists', (done) => {
+      axiosMock(409, {
+        success: false,
+        status: 'Already Exists',
+        error: 'Destination asset already exists',
+      }, done);
+      expect(dbom.transferAsset('sourceRepoID', 'sourceChannelID', 'sourceAssetID',
+        'destinationRepoID', 'destinationChannelID', 'destinationAssetID')).to.be.rejectedWith(DestinationAssetAlreadyExists);
+      expect(dbom1.transferAsset('sourceRepoID', 'sourceChannelID', 'sourceAssetID',
+        'destinationRepoID', 'destinationChannelID', 'destinationAssetID')).to.be.rejectedWith(DestinationAssetAlreadyExists);
+    });
+
+    it('should return gateway error', (done) => {
+      axiosMock(500, 'stubResponse', done);
+      expect(dbom.transferAsset('sourceRepoID', 'sourceChannelID', 'sourceAssetID',
+        'destinationRepoID', 'destinationChannelID', 'destinationAssetID')).to.be.rejectedWith(GatewayError);
+      expect(dbom1.transferAsset('sourceRepoID', 'sourceChannelID', 'sourceAssetID',
+        'destinationRepoID', 'destinationChannelID', 'destinationAssetID')).to.be.rejectedWith(GatewayError);
     });
   });
 });
