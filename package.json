@@ -1,6 +1,6 @@
 {
   "name": "@dbom/sdk",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Node SDK for DBoM",
   "main": "src/dbom-node.js",
   "scripts": {
