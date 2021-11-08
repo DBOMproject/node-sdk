@@ -34,6 +34,8 @@ const {
   ParentAssetOrChannelNotFound,
   ChildAssetOrChannelNotFound,
   SigningServiceError,
+  SourceAssetOrChannelNotFound,
+  DestinationAssetAlreadyExists,
 } = require('./errors');
 
 /** Class representing a DBoM Node. */
@@ -71,7 +73,7 @@ class DbomNode {
 
   /**
    * Constructs baseURL from initialized DBoM Node
-   * @returns 
+   * @returns
    */
   _constructBaseURL() {
     return `http://${this.gatewayURI}/api/v1`;
@@ -394,7 +396,7 @@ class DbomNode {
   async queryAssets(repoID, channelID, queryParams) {
     const requestURI = `${this._constructAssetURL(repoID, channelID)}/_query`;
     try {
-      return (await this.axios.post(requestURI, 
+      return (await this.axios.post(requestURI,
         this.constructor._applyQueryParamDefaults(queryParams))).data;
     } catch (e) {
       const status = this._getErrorStatus(e);
@@ -440,6 +442,43 @@ class DbomNode {
       const status = this._getErrorStatus(e);
       if (status === 404) {
         throw new AssetOrChannelNotFound();
+      } else {
+        throw new GatewayError(status, e.response.data);
+      }
+    }
+  }
+
+  /**
+   * Attaches a child asset to the provided parent asset
+   * @param {string} sourceRepoID -  Repository ID of the repository where the source asset
+   *                                 is stored
+   * @param {string} sourceChannelID - Channel ID of the channel where the source asset is stored
+   * @param {string} sourceAssetID - Asset ID of the source asset
+   * @param {string} destinationRepoID -  Repository ID of the destination repository
+   * @param {string} destinationChannelID - Channel ID of the destination channel
+   * @param {string} destinationAssetID - Asset ID that must be given to the asset on
+   *                                      the destination channel
+   * @param {string} transferDescription - The reason to be associated with the transfer
+   * @returns {*} - Gateway Response
+   */
+  async transferAsset(sourceRepoID, sourceChannelID, sourceAssetID,
+    destinationRepoID, destinationChannelID, destinationAssetID,
+    transferDescription) {
+    const requestURI = `${this._constructAssetURL(sourceRepoID, sourceChannelID, sourceAssetID)}/transfer`;
+    const body = {
+      transferDescription,
+      repoID: destinationRepoID,
+      channelID: destinationChannelID,
+      assetID: destinationAssetID,
+    };
+    try {
+      return (await this.axios.post(requestURI, body)).data;
+    } catch (e) {
+      const status = this._getErrorStatus(e);
+      if (status === 404) {
+        throw new SourceAssetOrChannelNotFound();
+      } else if (status === 409 && e.response.data.status === 'Already Exists') {
+        throw new DestinationAssetAlreadyExists();
       } else {
         throw new GatewayError(status, e.response.data);
       }
