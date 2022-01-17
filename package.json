@@ -4,6 +4,7 @@
   "description": "Node SDK for DBoM",
   "main": "src/dbom-node.js",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "generate-docs": "jsdoc --configure docs/.jsdoc.json --verbose",
     "test": "cross-env NODE_ENV=development nyc mocha src/test/* --exit && npx nyc report --reporter=html",
     "test-coveralls": "cross-env NODE_ENV=development nyc mocha src/test/* -timeout=1200000 --exit && npx nyc report --reporter=lcovonly"
@@ -44,6 +45,7 @@
     "taffydb": "2.7.3",
     "lodash": "4.17.21",
     "underscore": "1.13.1",
-    "hosted-git-info": "2.8.9"
+    "hosted-git-info": "2.8.9",
+    "markdown-it": "12.3.2"
   }
 }
