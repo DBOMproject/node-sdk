@@ -1,10 +1,9 @@
 {
   "name": "@dbom/sdk",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Node SDK for DBoM",
   "main": "src/dbom-node.js",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "generate-docs": "jsdoc --configure docs/.jsdoc.json --verbose",
     "test": "cross-env NODE_ENV=development nyc mocha src/test/* --exit && npx nyc report --reporter=html",
     "test-coveralls": "cross-env NODE_ENV=development nyc mocha src/test/* -timeout=1200000 --exit && npx nyc report --reporter=lcovonly"
@@ -13,14 +12,14 @@
   "author": "DBoM Project",
   "license": "Apache-2.0",
   "dependencies": {
-    "ajv": "^8.6.2",
+    "ajv": "^8.11.0",
     "axios": "^0.21.4"
   },
   "devDependencies": {
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "cross-env": "^7.0.2",
-    "eslint": "^7.13.0",
+    "eslint": "^8.25.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-plugin-import": "^2.22.0",
     "jsdoc": "^3.6.6",
@@ -28,7 +27,7 @@
     "mocha": "^9.1.1",
     "moxios": "^0.4.0",
     "nyc": "^15.1.0",
-    "sinon": "^11.1.2"
+    "sinon": "^14.0.1"
   },
   "directories": {
     "doc": "docs"
@@ -40,13 +39,5 @@
   "bugs": {
     "url": "https://github.com/DBOMproject/node-sdk/issues"
   },
-  "homepage": "https://github.com/DBOMproject/node-sdk#readme",
-  "resolutions": {
-    "taffydb": "2.7.3",
-    "lodash": "4.17.21",
-    "underscore": "1.13.1",
-    "hosted-git-info": "2.8.9",
-    "marked": "4.0.10",
-    "markdown-it": "12.3.2"
-  }
+  "homepage": "https://github.com/DBOMproject/node-sdk#readme"
 }
